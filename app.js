@@ -1,4 +1,5 @@
 const http = require('http');
+const fs = require('fs');
 
 // function rqListener(req, res) {}
 
@@ -12,6 +13,8 @@ const server = http.createServer((req, res) => {    //function keyword approach
     // process.exit();
 
     const url = req.url;
+    const method = req.method;
+
     if(url === '/') {
         res.setHeader('Content-Type', 'text/html');
         res.write('<html>');
@@ -23,6 +26,26 @@ const server = http.createServer((req, res) => {    //function keyword approach
         </form>
         </body>`);
         res.write('</html>');
+        return res.end();
+    }
+
+    if(url === '/message' && method === 'POST') {
+        const body = [];
+
+        req.on('data', (chunk) => {
+            console.log(chunk);
+            body.push(chunk);
+        });
+
+        req.on('end', () => {
+            const parsedBody = Buffer.concat(body).toString();
+            console.log(parsedBody);
+            const message = parsedBody.split('=')[1];
+            fs.writeFileSync('message.txt', message);
+        });
+
+        res.statusCode = 302;
+        res.setHeader('Location', '/');
         return res.end();
     }
 
