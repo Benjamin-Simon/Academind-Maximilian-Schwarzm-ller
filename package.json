@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-complete-guide",
+  "version": "1.0.0",
+  "description": "Complete Nodejs Guide",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "start-server": "node app.js npm run start-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Benjamin-Simon/Academind-Maximilian-Schwarzm-ller.git"
+  },
+  "author": "My Name",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Benjamin-Simon/Academind-Maximilian-Schwarzm-ller/issues"
+  },
+  "homepage": "https://github.com/Benjamin-Simon/Academind-Maximilian-Schwarzm-ller#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
