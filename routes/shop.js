@@ -1,4 +1,4 @@
-
+const path = require('path');
 const express = require('express');
 
 const router = express.Router();
@@ -8,8 +8,12 @@ const router = express.Router();
 //     next();
 // });
 
+// router.get('/', (req, res, next) => {
+//     res.send('<h1>Hello from Express!</h1>');
+// });
+
 router.get('/', (req, res, next) => {
-    res.send('<h1>Hello from Express!</h1>');
+    res.sendFile(path.join(__dirname, '../','views','shop.html')) //__dirname - global variable wich simpy holds the absolute path of our operating system to this project folder 
 });
 
 module.exports = router;
